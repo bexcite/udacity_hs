@@ -1,0 +1,9 @@
+<!-- File to launch turtlebot_world.launch with our world file param -->
+<launch>
+  <arg name="world_file" default="$(find hs_project)/worlds/mansion_furnished.world"/>
+
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+    <arg name="world_file" value="$(arg world_file)"/>
+  </include>
+
+</launch>
