@@ -1279,89 +1279,11 @@
       </link>
       <pose frame=''>1.21061 -4.32461 0 0 -0 0</pose>
     </model>
-    <model name='cafe_table'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='surface'>
-          <pose frame=''>0 0 0.755 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.913 0.913 0.04</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='column'>
-          <pose frame=''>0 0 0.37 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.042 0.042 0.74</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='base'>
-          <pose frame=''>0 0 0.02 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>0.56 0.56 0.04</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://cafe_table/meshes/cafe_table.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-5.73565 2.75612 0 0 -0 0</pose>
-    </model>
     <state world_name='default'>
-      <sim_time>219 490000000</sim_time>
-      <real_time>220 938300241</real_time>
-      <wall_time>1527531192 239706724</wall_time>
-      <iterations>219490</iterations>
+      <sim_time>276 334000000</sim_time>
+      <real_time>57 276881843</real_time>
+      <wall_time>1527541973 935002967</wall_time>
+      <iterations>56844</iterations>
       <model name='bookshelf'>
         <pose frame=''>-6.56787 -2.75924 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1382,24 +1304,24 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='cafe_table'>
-        <pose frame=''>-5.73565 2.75612 0 0 -0 0</pose>
+      <model name='cube_20k'>
+        <pose frame=''>-5.19384 2.68961 0 0 0 -2e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-5.73565 2.75612 0 0 -0 0</pose>
+          <pose frame=''>-5.19384 2.68961 0.5 0 0 -2e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <acceleration>-1.07556 -0.034272 0.19878 -3.07094 -0.991638 -3.13739</acceleration>
+          <wrench>-1.07556 -0.034272 0.19878 0 -0 0</wrench>
         </link>
       </model>
       <model name='euro_pallet'>
-        <pose frame=''>1.20528 -4.32046 0.071999 0 -4e-06 -0.013016</pose>
+        <pose frame=''>1.20528 -4.32046 0.072 0 0 -0.013016</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>1.20528 -4.32046 0.071999 0 -4e-06 -0.013016</pose>
+          <pose frame=''>1.20528 -4.32046 0.072 0 0 -0.013016</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.029115 0.000348 -9.71815 -0.007704 -0.404598 -1e-05</acceleration>
-          <wrench>-0.582299 0.00696 -194.363 0 -0 0</wrench>
+          <acceleration>-2.71568 0.035381 12.3554 -0.760158 -0.021351 1e-05</acceleration>
+          <wrench>-54.3137 0.70762 247.109 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -1413,7 +1335,7 @@
         </link>
       </model>
       <model name='mansion'>
-        <pose frame=''>-2.73914 -1.06912 0 0 -0 0</pose>
+        <pose frame=''>-2.73914 -1.06913 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='Wall_50'>
           <pose frame=''>1.7684 -1.59777 0 0 -0 1.5708</pose>
@@ -1512,10 +1434,58 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-2.32333 -6.60827 21.2644 1e-06 1.5298 0.680205</pose>
+        <pose frame=''>-2.09886 -3.52405 21.1663 -0 1.4818 1.1282</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='cube_20k'>
+      <link name='link'>
+        <pose frame=''>0 0 0.5 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://cube_20k/meshes/cube_20k.stl</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cube_20k/meshes/cube_20k.stl</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-5.19384 2.68961 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>
