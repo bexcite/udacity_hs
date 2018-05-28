@@ -1,0 +1,7 @@
+<launch>
+  <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
+  <node pkg="wall_follower" type="wall_follower" name="wall_follower"  output="screen">
+    <!-- <remap from="wall_follower/cmd_vel" to="/cmd_vel_mux/input/teleop"/>
+    <remap from="wall_follower/scan" to="/scan"/> --> -->
+  </node>
+</launch>
