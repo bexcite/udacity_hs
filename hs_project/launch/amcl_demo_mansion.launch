@@ -1,0 +1,9 @@
+<!-- File to launch turtlebot_world.launch with our world file param -->
+<launch>
+  <arg name="map_file" default="$(find hs_project)/worlds/mansion.yaml"/>
+
+  <include file="$(find turtlebot_navigation)/launch/amcl_demo.launch">
+    <arg name="map_file" value="$(arg map_file)"/>
+  </include>
+
+</launch>
