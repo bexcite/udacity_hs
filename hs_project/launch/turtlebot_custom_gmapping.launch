@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find turtlebot_navigation)/launch/gmapping_demo.launch">
+    <arg name="custom_gmapping_launch_file" value="$(find hs_project)/launch/custom_gmapping.launch"/>
+  </include>
+
+</launch>
