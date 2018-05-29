@@ -1229,61 +1229,11 @@
       </link>
       <pose frame=''>1.39124 -2.60145 0 0 -0 0</pose>
     </model>
-    <model name='euro_pallet'>
-      <link name='link'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <inertial>
-          <mass>20</mass>
-          <inertia>
-            <ixx>2.43</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1.1</iyy>
-            <iyz>0</iyz>
-            <izz>3.47</izz>
-          </inertia>
-        </inertial>
-        <collision name='collision'>
-          <pose frame=''>0 0 0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://euro_pallet/meshes/pallet.dae</uri>
-              <scale>0.1 0.1 0.1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <pose frame=''>0 0 0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://euro_pallet/meshes/pallet.dae</uri>
-              <scale>0.1 0.1 0.1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>1.21061 -4.32461 0 0 -0 0</pose>
-    </model>
     <state world_name='default'>
-      <sim_time>276 334000000</sim_time>
-      <real_time>57 276881843</real_time>
-      <wall_time>1527541973 935002967</wall_time>
-      <iterations>56844</iterations>
+      <sim_time>321 775000000</sim_time>
+      <real_time>45 725114779</real_time>
+      <wall_time>1527575177 847708790</wall_time>
+      <iterations>45441</iterations>
       <model name='bookshelf'>
         <pose frame=''>-6.56787 -2.75924 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1305,23 +1255,13 @@
         </link>
       </model>
       <model name='cube_20k'>
-        <pose frame=''>-5.19384 2.68961 0 0 0 -2e-06</pose>
+        <pose frame=''>-3.56374 2.6896 0 0 0 -1.3e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-5.19384 2.68961 0.5 0 0 -2e-06</pose>
+          <pose frame=''>-3.56374 2.6896 0.5 0 0 -1.3e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-1.07556 -0.034272 0.19878 -3.07094 -0.991638 -3.13739</acceleration>
-          <wrench>-1.07556 -0.034272 0.19878 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='euro_pallet'>
-        <pose frame=''>1.20528 -4.32046 0.072 0 0 -0.013016</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>1.20528 -4.32046 0.072 0 0 -0.013016</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-2.71568 0.035381 12.3554 -0.760158 -0.021351 1e-05</acceleration>
-          <wrench>-54.3137 0.70762 247.109 0 -0 0</wrench>
+          <acceleration>-1.07556 -0.03426 0.19878 -3.07097 -0.991637 -3.13739</acceleration>
+          <wrench>-1.07556 -0.03426 0.19878 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -1434,7 +1374,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-2.09886 -3.52405 21.1663 -0 1.4818 1.1282</pose>
+        <pose frame=''>-4.82934 -3.82253 20.9956 0 1.4258 0.780198</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

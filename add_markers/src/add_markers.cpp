@@ -44,6 +44,7 @@
 bool picking_up = true;
 bool dropping_off = false;
 
+ros::Publisher marker_pub;
 visualization_msgs::Marker marker;
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
@@ -62,7 +63,7 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
 
     dx = odom_x - PICKUP_X;
     dy = odom_y - PICKUP_Y;
-    dist = std::sqrt(dx, dy);
+    dist = std::sqrt(dx*dx+dy*dy);
     if (dist < TOLERANCE && picking_up) {
       // we are at the pickup location
       ROS_INFO("Picking UP object");
@@ -84,7 +85,7 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
 
     dx = odom_x - DROPOFF_X;
     dy = odom_y - DROPOFF_Y;
-    dist = std::sqrt(dx, dy);
+    dist = std::sqrt(dx*dx+dy*dy);
 
     if (dist < TOLERANCE) {
       // we are at the pickup location
@@ -111,7 +112,7 @@ int main( int argc, char** argv )
   ros::NodeHandle n;
   ros::Rate r(1);
 
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+  marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
 
   // Set the frame ID and timestamp.  See the TF tutorials for information on these.

@@ -43,35 +43,35 @@ bool robot_move(const ROBOT_MOVEMENT move_type)
     else if (move_type == FORWARD) {
         ROS_INFO("[ROBOT] Always FORWARD! \n");
         motor_command.angular.z = 0.0;
-        motor_command.linear.x = 0.5;
+        motor_command.linear.x = 0.25; //0.5
     }
 
     else if (move_type == BACKWARD) {
         ROS_INFO("[ROBOT] I'm going back! \n");
-        motor_command.linear.x = -0.75;
+        motor_command.linear.x = -0.5; // -0.75
         motor_command.angular.z = 0.0;
     }
 
     else if (move_type == TURN_LEFT) {
         ROS_INFO("[ROBOT] I'm turning left! \n");
         motor_command.linear.x = 0.0;
-        motor_command.angular.z = 1.0;
+        motor_command.angular.z = 0.5; //1.0
     }
 
     else if (move_type == TURN_RIGHT) {
         ROS_INFO("[ROBOT] I'm turning right! \n");
         motor_command.linear.x = 0.0;
-        motor_command.angular.z = -1.0;
+        motor_command.angular.z = -0.5; //-1.0
     }
     else if (move_type == GO_RIGHT) {
         ROS_INFO("[ROBOT] I'm goin right! \n");
-        motor_command.linear.x = 0.25;
-        motor_command.angular.z = -0.25;
+        motor_command.linear.x = 0.125; // 0.25
+        motor_command.angular.z = -0.125;
     }
     else if (move_type == GO_LEFT) {
         ROS_INFO("[ROBOT] I'm goin left! \n");
-        motor_command.linear.x = 0.25;
-        motor_command.angular.z = 0.25;
+        motor_command.linear.x = 0.125; //0.25
+        motor_command.angular.z = 0.125;
     }
     else {
         ROS_INFO("[ROBOT_MOVE] Move type wrong! \n");
@@ -132,7 +132,7 @@ void laser_callback(const sensor_msgs::LaserScan::ConstPtr& scan_msg)
     // Assign movements to a robot that still did not crash
     if (!crashed) {
 
-        if (range_min <= 0.5 && !thats_a_door) {
+        if (range_min <= 0.5 && !thats_a_door) { //0.5
             following_wall = true;
             crashed = false;
             robot_move(STOP);
@@ -156,7 +156,7 @@ void laser_callback(const sensor_msgs::LaserScan::ConstPtr& scan_msg)
                 }
             }
             if (thats_a_door) {
-                if (laser_ranges[0] <= 0.5) {
+                if (laser_ranges[0] <= 0.5) { // 0.5
                     thats_a_door = false;
                 }
                 else {
