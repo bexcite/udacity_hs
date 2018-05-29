@@ -32,7 +32,7 @@
 
 int main( int argc, char** argv )
 {
-  ros::init(argc, argv, "basic_shapes");
+  ros::init(argc, argv, "add_markers");
   ros::NodeHandle n;
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
@@ -40,11 +40,14 @@ int main( int argc, char** argv )
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
 
-  while (ros::ok())
-  {
+
+
+  // while (ros::ok())
+  // {
+
     visualization_msgs::Marker marker;
     // Set the frame ID and timestamp.  See the TF tutorials for information on these.
-    marker.header.frame_id = "/my_frame";
+    marker.header.frame_id = "/map";
     marker.header.stamp = ros::Time::now();
 
     // Set the namespace and id for this marker.  This serves to create a unique ID
@@ -81,34 +84,55 @@ int main( int argc, char** argv )
     marker.lifetime = ros::Duration();
 
     // Publish the marker
-    while (marker_pub.getNumSubscribers() < 1)
-    {
-      if (!ros::ok())
-      {
-        return 0;
-      }
-      ROS_WARN_ONCE("Please create a subscriber to the marker");
-      sleep(1);
-    }
+    // while (marker_pub.getNumSubscribers() < 1)
+    // {
+    //   if (!ros::ok())
+    //   {
+    //     return 0;
+    //   }
+    //   ROS_WARN_ONCE("Please create a subscriber to the marker");
+    //   sleep(1);
+    // }
     marker_pub.publish(marker);
 
-    // Cycle between different shapes
-    switch (shape)
-    {
-    case visualization_msgs::Marker::CUBE:
-      shape = visualization_msgs::Marker::SPHERE;
-      break;
-    case visualization_msgs::Marker::SPHERE:
-      shape = visualization_msgs::Marker::ARROW;
-      break;
-    case visualization_msgs::Marker::ARROW:
-      shape = visualization_msgs::Marker::CYLINDER;
-      break;
-    case visualization_msgs::Marker::CYLINDER:
-      shape = visualization_msgs::Marker::CUBE;
-      break;
-    }
+    ros::Duration(5.0).sleep();
 
-    r.sleep();
-  }
+    // Delete marker
+
+    marker.action = visualization_msgs::Marker::DELETE;
+    marker_pub.publish(marker);
+
+    ros::Duration(5.0).sleep();
+
+    // Show at drop off zone
+
+    marker.pose.position.x = 1.0;
+    marker.pose.position.y = 1.0;
+    marker.pose.position.z = 0;
+
+    marker.action = visualization_msgs::Marker::ADD;
+
+    marker_pub.publish(marker);
+
+
+
+    // Cycle between different shapes
+    // switch (shape)
+    // {
+    // case visualization_msgs::Marker::CUBE:
+    //   shape = visualization_msgs::Marker::SPHERE;
+    //   break;
+    // case visualization_msgs::Marker::SPHERE:
+    //   shape = visualization_msgs::Marker::ARROW;
+    //   break;
+    // case visualization_msgs::Marker::ARROW:
+    //   shape = visualization_msgs::Marker::CYLINDER;
+    //   break;
+    // case visualization_msgs::Marker::CYLINDER:
+    //   shape = visualization_msgs::Marker::CUBE;
+    //   break;
+    // }
+
+    // r.sleep();
+  // }
 }
