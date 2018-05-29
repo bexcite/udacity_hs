@@ -29,6 +29,11 @@
 
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
+#include <nav_msgs/Odometry.h>
+
+void odomCallback(const nav_msgs) {
+  ROS_INFO("Odom received!");
+}
 
 int main( int argc, char** argv )
 {
@@ -36,6 +41,8 @@ int main( int argc, char** argv )
   ros::NodeHandle n;
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+
+  ros::Subscriber odom_sub = n.subscribe("/odom", 10, odomCallback);
 
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
