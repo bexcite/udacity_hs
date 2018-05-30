@@ -1230,10 +1230,20 @@
       <pose frame=''>1.39124 -2.60145 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>321 775000000</sim_time>
-      <real_time>45 725114779</real_time>
-      <wall_time>1527575177 847708790</wall_time>
-      <iterations>45441</iterations>
+      <sim_time>396 134000000</sim_time>
+      <real_time>74 813876640</real_time>
+      <wall_time>1527648710 908722425</wall_time>
+      <iterations>74359</iterations>
+      <model name='Construction Barrel'>
+        <pose frame=''>1.05146 1.0975 -1e-06 3e-06 -2e-06 -2e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>1.05146 1.0975 -1e-06 3e-06 -2e-06 -2e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>5.7256 -8.18842 8.25013 -1.44513 1.12853 3.02725</acceleration>
+          <wrench>2862.8 -4094.21 4125.06 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='bookshelf'>
         <pose frame=''>-6.56787 -2.75924 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1255,13 +1265,13 @@
         </link>
       </model>
       <model name='cube_20k'>
-        <pose frame=''>-3.56374 2.6896 0 0 0 -1.3e-05</pose>
+        <pose frame=''>-3.56374 2.6896 0 0 1e-06 -2.3e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-3.56374 2.6896 0.5 0 0 -1.3e-05</pose>
+          <pose frame=''>-3.56374 2.6896 0.5 0 1e-06 -2.3e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-1.07556 -0.03426 0.19878 -3.07097 -0.991637 -3.13739</acceleration>
-          <wrench>-1.07556 -0.03426 0.19878 0 -0 0</wrench>
+          <acceleration>1.07556 0.034249 -0.19878 3.07099 0.991636 3.13739</acceleration>
+          <wrench>1.07556 0.034249 -0.19878 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -1374,7 +1384,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-4.82934 -3.82253 20.9956 0 1.4258 0.780198</pose>
+        <pose frame=''>-3.06905 -8.94403 14.0681 0 1.1098 0.948195</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -1426,6 +1436,52 @@
         <kinematic>0</kinematic>
       </link>
       <pose frame=''>-5.19384 2.68961 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel'>
+      <link name='link'>
+        <inertial>
+          <pose frame=''>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>1.05147 1.0975 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>

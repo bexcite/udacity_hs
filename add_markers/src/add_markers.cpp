@@ -33,11 +33,11 @@
 
 #include <cmath>
 
-#define PICKUP_X 0.5
-#define PICKUP_Y 0.5
+#define PICKUP_X -0.2
+#define PICKUP_Y -4.0
 
-#define DROPOFF_X 1.5
-#define DROPOFF_Y 1.5
+#define DROPOFF_X -5.6
+#define DROPOFF_Y 0.6
 
 #define TOLERANCE 0.5
 
