@@ -39,7 +39,7 @@
 #define DROPOFF_X -5.6
 #define DROPOFF_Y 0.6
 
-#define TOLERANCE 0.5
+#define TOLERANCE 0.6
 
 bool picking_up = true;
 bool dropping_off = false;
@@ -49,7 +49,7 @@ visualization_msgs::Marker marker;
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
 
-  ROS_INFO("Odom received! Processing ...");
+  // ROS_INFO("Odom received! Processing ...");
 
   float odom_x = msg->pose.pose.position.x;
   float odom_y = msg->pose.pose.position.y;
@@ -59,14 +59,15 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   float dist;
 
   if (picking_up) {
-    ROS_INFO("Checking drop off ...");
+
 
     dx = odom_x - PICKUP_X;
     dy = odom_y - PICKUP_Y;
     dist = std::sqrt(dx*dx+dy*dy);
+    ROS_INFO("Picking up ... dist = %f", dist);
     if (dist < TOLERANCE && picking_up) {
       // we are at the pickup location
-      ROS_INFO("Picking UP object");
+      ROS_INFO("Pick UP object");
 
       // Issue pickup-delete marker
       marker.action = visualization_msgs::Marker::DELETE;
@@ -81,15 +82,16 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
     }
 
   } else if (dropping_off) {
-    ROS_INFO("Checking drop off ...");
+
 
     dx = odom_x - DROPOFF_X;
     dy = odom_y - DROPOFF_Y;
     dist = std::sqrt(dx*dx+dy*dy);
+    ROS_INFO("Dropping off ... dist = %f", dist);
 
     if (dist < TOLERANCE) {
       // we are at the pickup location
-      ROS_INFO("Dropping OFF object");
+      ROS_INFO("Drop OFF object");
 
       marker.pose.position.x = DROPOFF_X;
       marker.pose.position.y = DROPOFF_Y;
@@ -110,7 +112,7 @@ int main( int argc, char** argv )
 {
   ros::init(argc, argv, "add_markers");
   ros::NodeHandle n;
-  ros::Rate r(1);
+
 
   marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
@@ -142,30 +144,34 @@ int main( int argc, char** argv )
   marker.pose.orientation.w = 1.0;
 
   // Set the scale of the marker -- 1x1x1 here means 1m on a side
-  marker.scale.x = 1.0;
-  marker.scale.y = 1.0;
-  marker.scale.z = 1.0;
+  marker.scale.x = 0.25;
+  marker.scale.y = 0.25;
+  marker.scale.z = 0.25;
 
   // Set the color -- be sure to set alpha to something non-zero!
-  marker.color.r = 0.0f;
-  marker.color.g = 1.0f;
-  marker.color.b = 0.0f;
+  marker.color.r = 0.3f;
+  marker.color.g = 0.3f;
+  marker.color.b = 1.0f;
   marker.color.a = 1.0;
 
   marker.lifetime = ros::Duration();
 
+  ros::Duration(1.0).sleep();
+
+  ROS_INFO("Adding marker ...");
   marker_pub.publish(marker);
 
-
-
-
+/*
+  ROS_INFO("Wait 5 sec ...");
   ros::Duration(5.0).sleep();
 
   // Delete marker
 
   marker.action = visualization_msgs::Marker::DELETE;
+  ROS_INFO("Remove marker ...");
   marker_pub.publish(marker);
 
+  ROS_INFO("Wait 5 sec ...");
   ros::Duration(5.0).sleep();
 
   // Show at drop off zone
@@ -176,14 +182,22 @@ int main( int argc, char** argv )
 
   marker.action = visualization_msgs::Marker::ADD;
 
+  ROS_INFO("Adding marker at drop off ...");
   marker_pub.publish(marker);
+  */
 
 
 
+  ros::Subscriber odom_sub = n.subscribe("/odom", 1, odomCallback);
 
-  // ros::Subscriber odom_sub = n.subscribe("/odom", 10, odomCallback);
+  // ros::spin();
 
-  ros::spin();
+  ros::Rate r(10.0); // 10 Hz
+  while (ros::ok()) {
+      ros::spinOnce();
+      r.sleep();
+  }
 
+  return 0;
 
 }
