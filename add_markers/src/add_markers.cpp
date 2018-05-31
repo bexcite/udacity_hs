@@ -37,7 +37,7 @@
 #define PICKUP_Y -4.0
 
 #define DROPOFF_X -5.6
-#define DROPOFF_Y 0.6
+#define DROPOFF_Y 0.9
 
 #define TOLERANCE 0.6
 

@@ -7,7 +7,7 @@
 #define PICKUP_Y -4.0
 
 #define DROPOFF_X -5.6
-#define DROPOFF_Y 0.6
+#define DROPOFF_Y 0.9
 
 
 // Define a client for to send goal requests to the move_base server through a SimpleActionClient
