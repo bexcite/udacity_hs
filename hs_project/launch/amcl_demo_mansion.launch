@@ -1,4 +1,4 @@
-<!-- File to launch turtlebot_world.launch with our world file param -->
+<!-- File to launch turtlebot_navigation amcl_demo.launch with our map file param -->
 <launch>
   <arg name="map_file" default="$(find hs_project)/worlds/map_mansion.yaml"/>
 

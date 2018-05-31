@@ -33,6 +33,7 @@
 
 #include <cmath>
 
+// Pickup and drop off coordinates
 #define PICKUP_X -0.2
 #define PICKUP_Y -4.0
 
@@ -190,7 +191,6 @@ int main( int argc, char** argv )
 
   ros::Subscriber odom_sub = n.subscribe("/odom", 1, odomCallback);
 
-  // ros::spin();
 
   ros::Rate r(10.0); // 10 Hz
   while (ros::ok()) {

@@ -2,7 +2,7 @@
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
 
-
+// Pickup and drop off coordinates
 #define PICKUP_X -0.2
 #define PICKUP_Y -4.0
 
